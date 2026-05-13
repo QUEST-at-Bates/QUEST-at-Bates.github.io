@@ -33,6 +33,17 @@ website:
          text: "Honors Thesis Calendar" 
          target: _blank #makes it open in new page
 
+   - id: thesis
+        title: "PeakMap"
+        style: "docked"
+        background: light
+        contents:
+         - PeakMap.qmd
+         - href: https://github.com/ghoneybone/peakmap
+           text: "GitHub""
+           target: _blank #makes it open in new page
+    
+
    
    
 format:

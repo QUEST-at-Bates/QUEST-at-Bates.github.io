@@ -1,0 +1,9 @@
+---
+title: "PeakMap"
+format: 
+  html:
+    link-external-newwindow: true
+editor: source
+---
+
+# PeakMap documentation
