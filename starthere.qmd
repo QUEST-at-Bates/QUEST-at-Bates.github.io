@@ -16,7 +16,7 @@ The first thing you should do as a member of this research group is read the [la
 
 # Join the slack workspace
 
-You should have received an email with an invite link to join the QUEST slack workspace. If you didn't, email Casey to ask for a link.
+You should have received an email with an invite link to join the QUEST slack workspace. If you didn't, email me to ask for a link.
 
 The slack workspace is where we will organize conversations about projects, schedule group meetings, and ask each other questions.
 

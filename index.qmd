@@ -10,5 +10,6 @@ editor: source
 This is the landing page for the Bates College QUEST Research Group, led by Dr. Casey Berger in the Department of Physics and Astronomy. On this site you can find the group manual, useful links and resources, and get access to the GitHub and research library.
 
 Please begin by reading the group manual, where we lay out what it means to be a member of this group:
+
 <a target="_blank" class="btn-garnet" href=manual.qmd>Group Manual</a>
 
