@@ -13,6 +13,7 @@ website:
         text: Home
       - sidebar:starthere
       - sidebar:thesis
+      - sidebar:computing
   
   sidebar:
     - id: starthere
@@ -32,16 +33,25 @@ website:
        - href: https://www.bates.edu/honors/calendar/
          text: "Honors Thesis Calendar" 
          target: _blank #makes it open in new page
+         
+    - id: computing
+      title: "Computing at Bates"
+      style: "docked"
+      background: light
+      contents:
+        - leavittonboarding.qmd
+        - metisonboarding.qmd
+        - href: https://www.bates.edu/research-resources/etna/
+          text: "Data Storage at Bates: Etna"
+          target: _blank
 
-   - id: thesis
-        title: "PeakMap"
-        style: "docked"
-        background: light
-        contents:
-         - PeakMap.qmd
-         - href: https://github.com/ghoneybone/peakmap
-           text: "GitHub""
-           target: _blank #makes it open in new page
+    - id: projects
+      title: "Projects"
+      style: "docked"
+      background: light
+      contents:
+        - PeakMap.qmd
+        - NonLinearSigma.qmd
     
 
    
