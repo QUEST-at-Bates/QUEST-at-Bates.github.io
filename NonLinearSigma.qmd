@@ -42,7 +42,7 @@ $Q(x) = \frac{1}{8 \pi} \epsilon^{\mu \nu} \epsilon_{abc} \partial_{\mu} \phi^{b
 
 with $\phi$ a 3-component unit vector.
 
-In lattice action form, we have (see [Alles et al, 2014](https://arxiv.org/abs/1409.1704)):
+In lattice action form, we have (see [Alles et al, 2014](https://arxiv.org/abs/1409.1704):
 
 $S_{L} = A_{L} - i \theta Q_{L}$
 
@@ -118,7 +118,7 @@ Research questions and next steps
 Another approach to systems with a sign problem is to use Complex Langevin. This has been demonstrated to be successful across disciplines and systems.
 <div class="alert alert-warning"> Cite at least 6 papers -- condensed matter, HEP, QCD </div>
 
-The complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see [Berger et al, 2021](https://www.sciencedirect.com/science/article/pii/S0370157320303422)) <div class="alert alert-warning"> Cite more? E.g. "The complex langevin method: when can it be trusted?" </div> 
+The complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see [Berger et al, 2021](https://www.sciencedirect.com/science/article/pii/S0370157320303422) <div class="alert alert-warning"> Cite more? E.g. "The complex langevin method: when can it be trusted?" </div> 
 
-It can sometimes converge to mathematically correct but physically invalid solutions (see [Guralnik and Pehlevan, 2008](https://arxiv.org/abs/0710.3756)). It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time <div class="alert alert-warning"> Pick a few of the relevant citations here </div>
+It can sometimes converge to mathematically correct but physically invalid solutions (see [Guralnik and Pehlevan, 2008](https://arxiv.org/abs/0710.3756). It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time <div class="alert alert-warning"> Pick a few of the relevant citations here </div>
 
