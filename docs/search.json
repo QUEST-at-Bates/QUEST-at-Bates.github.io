@@ -91,7 +91,7 @@
     "href": "NonLinearSigma.html",
     "title": "NonLinear Sigma Model with Topological Term",
     "section": "",
-    "text": "This page needs to be better organized – think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?",
+    "text": "This page needs to be better organized – think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?\nPages that exist:\nMass Gap\nRegularizing QL\nSystematics\nMC Code\nCL Code\nAnalysis Pipeline",
     "crumbs": [
       "NonLinear Sigma Model with Topological Term"
     ]
