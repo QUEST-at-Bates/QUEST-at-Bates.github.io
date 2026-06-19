@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -233,7 +204,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#simulation-and-analysis-code-for-2d-mathcalo3-nonlinear-sigma-model-with-topological-term-theta" id="toc-simulation-and-analysis-code-for-2d-mathcalo3-nonlinear-sigma-model-with-topological-term-theta" class="nav-link active" data-scroll-target="#simulation-and-analysis-code-for-2d-mathcalo3-nonlinear-sigma-model-with-topological-term-theta">Simulation and Analysis Code for <span class="math inline">\(2D\)</span> <span class="math inline">\(\mathcal{O}(3)\)</span> Nonlinear Sigma Model with Topological Term Theta</a>
+  <li><a href="#simulation-and-analysis-code-for-2d-o3-nonlinear-sigma-model-with-topological-term-theta" id="toc-simulation-and-analysis-code-for-2d-o3-nonlinear-sigma-model-with-topological-term-theta" class="nav-link active" data-scroll-target="#simulation-and-analysis-code-for-2d-o3-nonlinear-sigma-model-with-topological-term-theta">Simulation and Analysis Code for 2D O(3) Nonlinear Sigma Model with Topological Term Theta</a>
   <ul class="collapse">
   <li><a href="#monte-carlo-analytic-continuation-approach" id="toc-monte-carlo-analytic-continuation-approach" class="nav-link" data-scroll-target="#monte-carlo-analytic-continuation-approach">Monte Carlo + analytic continuation approach</a></li>
   </ul></li>
@@ -263,8 +234,8 @@ window.Quarto = {
 
 
 <p>This page needs to be better organized – think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?</p>
-<section id="simulation-and-analysis-code-for-2d-mathcalo3-nonlinear-sigma-model-with-topological-term-theta" class="level1">
-<h1>Simulation and Analysis Code for <span class="math inline">\(2D\)</span> <span class="math inline">\(\mathcal{O}(3)\)</span> Nonlinear Sigma Model with Topological Term Theta</h1>
+<section id="simulation-and-analysis-code-for-2d-o3-nonlinear-sigma-model-with-topological-term-theta" class="level1">
+<h1>Simulation and Analysis Code for 2D O(3) Nonlinear Sigma Model with Topological Term Theta</h1>
 <section id="monte-carlo-analytic-continuation-approach" class="level2">
 <h2 class="anchored" data-anchor-id="monte-carlo-analytic-continuation-approach">Monte Carlo + analytic continuation approach</h2>
 <p>This approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the 2D O(3) nonlinear sigma model where the topological term theta is assigned an imaginary value.</p>

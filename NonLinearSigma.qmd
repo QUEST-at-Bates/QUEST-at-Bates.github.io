@@ -7,7 +7,7 @@ editor: source
 ---
 This page needs to be better organized -- think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?
 
-# Simulation and Analysis Code for $2D$ $\mathcal{O}(3)$ Nonlinear Sigma Model with Topological Term Theta
+# Simulation and Analysis Code for 2D O(3) Nonlinear Sigma Model with Topological Term Theta
 
 ## Monte Carlo + analytic continuation approach
 
