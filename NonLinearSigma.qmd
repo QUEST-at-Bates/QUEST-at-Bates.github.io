@@ -3,12 +3,122 @@ title: "NonLinear Sigma Model with Topological Term"
 format: 
   html:
     link-external-newwindow: true
+    html-math-method: webtex
 editor: source
 ---
 This page needs to be better organized -- think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?
 
-# Simulation and Analysis Code for 2D O(3) Nonlinear Sigma Model with Topological Term Theta
+Pages that exist:
+
+[Mass Gap](nonlinearsigma/MassGap.qmd)
+
+[Regularizing QL](nonlinearsigma/RegularizingQL.qmd)
+
+[Systematics](nonlinearsigma/Systematics.qmd)
+
+[MC Code](nonlinearsigma/MCcode.qmd)
+
+[CL Code](nonlinearsigma/CLcode.qmd)
+
+[Analysis Pipeline](nonlinearsigma/AnalysisPipeline.qmd)
+
+
+# Simulation and Analysis Code
 
 ## Monte Carlo + analytic continuation approach
 
-This approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the 2D O(3) nonlinear sigma model where the topological term theta is assigned an imaginary value.
+This approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the $2D$ $\mathcal{O}(3)$ nonlinear sigma model where the topological term $\theta$ is assigned an imaginary value.
+
+### Background and Methodology
+
+#### Lattice Action
+
+In the continuum, the model has action
+
+$S = \frac{1}{2g} \int d^{2} x \left( \partial_{\mu} \vec{\phi}(x)\right)^{2} - i \theta \int d^{2} x Q(x)$
+
+with
+
+$Q(x) = \frac{1}{8 \pi} \epsilon^{\mu \nu} \epsilon_{abc} \partial_{\mu} \phi^{b}(x) \partial_{\nu}\phi^{c}(x)$
+
+with $\phi$ a 3-component unit vector.
+
+In lattice action form, we have (see [Alles et al, 2014](https://arxiv.org/abs/1409.1704):
+
+$S_{L} = A_{L} - i \theta Q_{L}$
+
+
+$A_{L} = -\frac{1}{g_{L}}\sum_{x,\mu}\left(\phi_{x}\cdot \phi_{x+\hat{\mu}}\right)$
+
+$Q_{L} = \sum_{x}\sum_{\Delta} Q_{L} \Delta$
+
+where $\vec{\phi}$ is a 3-component unit vector ($\vec{\phi} \cdot\vec{\phi} = 1$) and $Q_{L}$ is the total topological charge on the lattice. 
+
+#### Regularization of the topological charge
+
+The topological charge has been defined via sums over triangles created by cutting each square plaquette along the diagonal. Each vertex is labeled (numbered counter-clockwise), such that we call the fields at the sites of the vertices $\vec{\phi}_{1}, \vec{\phi}_{2},$ and $\vec{\phi}_{3}$ 
+
+The topological charge over each triangle obeys
+
+$$\exp(2 \pi i Q_{L}(\Delta)) = \frac{1}{\rho}\left(1 + \vec{\phi}_{1}\cdot\vec{\phi}_{2} + \vec{\phi}_{2}\cdot\vec{\phi}_{3} + \vec{\phi}_{3}\cdot\vec{\phi}_{1} + i \vec{\phi}_{1} \cdot (\vec{\phi}_{2}\times\vec{\phi}_{3})\right)$$
+
+with 
+
+$$\rho^{2} = 2(1+\vec{\phi}_{1}\cdot\vec{\phi}_{2})(1 + \vec{\phi}_{2}\cdot\vec{\phi}_{3})(1+ \vec{\phi}_{3}\cdot\vec{\phi}_{1})$$ 
+
+and 
+
+$$Q_{L}(\Delta) \in \left[-\frac{1}{2}, \frac{1}{2}\right]$$
+
+We use the arcsin of the quantity $\exp(2 \pi i Q_{L}(\Delta))$ to compute $Q_{L}(\Delta)$, as in C++ the domain of arcsin is symmetric about $0$, which prevents the need to adjust the domain to fit the expectation given above.
+
+[Here](nonlinearsigma/RegularizingQL.qmd) we provide a deeper dive into the topological charge and how it is regularized on triangles.
+
+#### Analytic continuation
+
+The simulation is run for imaginary values of $\theta$, which means we must analytically continue our results for real $\theta$. To do this, we fit our results to a curve and then substitute our imaginary $i \theta = \nu$ for a real $\theta = -i \nu$.
+
+#### The mass gap
+
+Our goal with this project is to determine the mass gap, which should vanish as $\theta \to \pi$. The mass gap is the inverse of the correlation length, which we compute in the simulation.
+
+<div class="alert alert-warning">
+The correlation length should be a real number, but our simulations are currently returning a complex result, due to the complexity of the correlation function. More investigation is required here.
+</div>
+
+[Here](nonlinearsigma/MassGap.qmd) we provide a deeper dive into the mass gap and compare our results prior to analytical continuation to Alles et al
+
+
+
+## Summary of Preliminary Results
+
+Preliminary simulation code is being run on small lattices ($L = 10,40,80$) with the intent to scale to larger lattices in the next few months.
+
+Early results look promising. For example, when comparing our results for the topological charge QL to those of Allés et al, we see a similar trend in the data:
+
+<img src = "./Figs_README/AllesPRBQ_L.png" width="425"/><img src = "./Figs_README/Q_L_preliminary.jpg" width="425"/>
+
+We expect as the size of the lattice grows (to 180 x 180, as was used in the PRB paper), our $Q_L$ plot should match theirs.
+
+## Current issues and open questions
+
+Issues we are working on resolving:
+* The topological charge calculation ($Q_{L}$) is currently returning non-integer values
+* The correlation function at the smallest nonzero lattice momentum $2\pi/L$ is a complex number, therefore so is our correlation length. Correlation length at imaginary $\theta$ should be real 
+* Additionally, when this value is computed in C++, the results are significantly off from the calculation done in Python
+* Currently, the simulation returns the average value of the correlation function computed after thermalization. There is no way to change this after the simulation is run, and we don't have the code set up yet to return any error on the correlation function. That may come in future versions of the code.
+
+Research questions and next steps
+* What can a ML model learn from the configuration data we have so far?
+* How will Complex Langevin results differ from these if at all?
+
+### Results
+
+## Complex Langevin Approach
+
+Another approach to systems with a sign problem is to use Complex Langevin. This has been demonstrated to be successful across disciplines and systems.
+<div class="alert alert-warning"> Cite at least 6 papers -- condensed matter, HEP, QCD </div>
+
+The complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see [Berger et al, 2021](https://www.sciencedirect.com/science/article/pii/S0370157320303422) <div class="alert alert-warning"> Cite more? E.g. "The complex langevin method: when can it be trusted?" </div> 
+
+It can sometimes converge to mathematically correct but physically invalid solutions (see [Guralnik and Pehlevan, 2008](https://arxiv.org/abs/0710.3756). It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time <div class="alert alert-warning"> Pick a few of the relevant citations here </div>

@@ -23,6 +23,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
 </style>
 
 
@@ -204,9 +205,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#simulation-and-analysis-code-for-2d-o3-nonlinear-sigma-model-with-topological-term-theta" id="toc-simulation-and-analysis-code-for-2d-o3-nonlinear-sigma-model-with-topological-term-theta" class="nav-link active" data-scroll-target="#simulation-and-analysis-code-for-2d-o3-nonlinear-sigma-model-with-topological-term-theta">Simulation and Analysis Code for 2D O(3) Nonlinear Sigma Model with Topological Term Theta</a>
+  <li><a href="#simulation-and-analysis-code" id="toc-simulation-and-analysis-code" class="nav-link active" data-scroll-target="#simulation-and-analysis-code">Simulation and Analysis Code</a>
   <ul class="collapse">
-  <li><a href="#monte-carlo-analytic-continuation-approach" id="toc-monte-carlo-analytic-continuation-approach" class="nav-link" data-scroll-target="#monte-carlo-analytic-continuation-approach">Monte Carlo + analytic continuation approach</a></li>
+  <li><a href="#monte-carlo-analytic-continuation-approach" id="toc-monte-carlo-analytic-continuation-approach" class="nav-link" data-scroll-target="#monte-carlo-analytic-continuation-approach">Monte Carlo + analytic continuation approach</a>
+  <ul class="collapse">
+  <li><a href="#background-and-methodology" id="toc-background-and-methodology" class="nav-link" data-scroll-target="#background-and-methodology">Background and Methodology</a></li>
+  </ul></li>
+  <li><a href="#summary-of-preliminary-results" id="toc-summary-of-preliminary-results" class="nav-link" data-scroll-target="#summary-of-preliminary-results">Summary of Preliminary Results</a></li>
+  <li><a href="#current-issues-and-open-questions" id="toc-current-issues-and-open-questions" class="nav-link" data-scroll-target="#current-issues-and-open-questions">Current issues and open questions</a>
+  <ul class="collapse">
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  </ul></li>
+  <li><a href="#complex-langevin-approach" id="toc-complex-langevin-approach" class="nav-link" data-scroll-target="#complex-langevin-approach">Complex Langevin Approach</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -234,11 +244,88 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>This page needs to be better organized – think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?</p>
-<section id="simulation-and-analysis-code-for-2d-o3-nonlinear-sigma-model-with-topological-term-theta" class="level1">
-<h1>Simulation and Analysis Code for 2D O(3) Nonlinear Sigma Model with Topological Term Theta</h1>
+<p>Pages that exist:</p>
+<p><a href="./nonlinearsigma/MassGap.html">Mass Gap</a></p>
+<p><a href="./nonlinearsigma/RegularizingQL.html">Regularizing QL</a></p>
+<p><a href="./nonlinearsigma/Systematics.html">Systematics</a></p>
+<p><a href="./nonlinearsigma/MCcode.html">MC Code</a></p>
+<p><a href="./nonlinearsigma/CLcode.html">CL Code</a></p>
+<p><a href="./nonlinearsigma/AnalysisPipeline.html">Analysis Pipeline</a></p>
+<section id="simulation-and-analysis-code" class="level1">
+<h1>Simulation and Analysis Code</h1>
 <section id="monte-carlo-analytic-continuation-approach" class="level2">
 <h2 class="anchored" data-anchor-id="monte-carlo-analytic-continuation-approach">Monte Carlo + analytic continuation approach</h2>
-<p>This approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the 2D O(3) nonlinear sigma model where the topological term theta is assigned an imaginary value.</p>
+<p>This approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%202D" alt="2D" title="2D" class="math inline"> <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cmathcal%7BO%7D%283%29" alt="\mathcal{O}(3)" title="\mathcal{O}(3)" class="math inline"> nonlinear sigma model where the topological term <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline"> is assigned an imaginary value.</p>
+<section id="background-and-methodology" class="level3">
+<h3 class="anchored" data-anchor-id="background-and-methodology">Background and Methodology</h3>
+<section id="lattice-action" class="level4">
+<h4 class="anchored" data-anchor-id="lattice-action">Lattice Action</h4>
+<p>In the continuum, the model has action</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20S%20%3D%20%5Cfrac%7B1%7D%7B2g%7D%20%5Cint%20d%5E%7B2%7D%20x%20%5Cleft%28%20%5Cpartial_%7B%5Cmu%7D%20%5Cvec%7B%5Cphi%7D%28x%29%5Cright%29%5E%7B2%7D%20-%20i%20%5Ctheta%20%5Cint%20d%5E%7B2%7D%20x%20Q%28x%29" alt="S = \frac{1}{2g} \int d^{2} x \left( \partial_{\mu} \vec{\phi}(x)\right)^{2} - i \theta \int d^{2} x Q(x)" title="S = \frac{1}{2g} \int d^{2} x \left( \partial_{\mu} \vec{\phi}(x)\right)^{2} - i \theta \int d^{2} x Q(x)" class="math inline"></p>
+<p>with</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q%28x%29%20%3D%20%5Cfrac%7B1%7D%7B8%20%5Cpi%7D%20%5Cepsilon%5E%7B%5Cmu%20%5Cnu%7D%20%5Cepsilon_%7Babc%7D%20%5Cpartial_%7B%5Cmu%7D%20%5Cphi%5E%7Bb%7D%28x%29%20%5Cpartial_%7B%5Cnu%7D%5Cphi%5E%7Bc%7D%28x%29" alt="Q(x) = \frac{1}{8 \pi} \epsilon^{\mu \nu} \epsilon_{abc} \partial_{\mu} \phi^{b}(x) \partial_{\nu}\phi^{c}(x)" title="Q(x) = \frac{1}{8 \pi} \epsilon^{\mu \nu} \epsilon_{abc} \partial_{\mu} \phi^{b}(x) \partial_{\nu}\phi^{c}(x)" class="math inline"></p>
+<p>with <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cphi" alt="\phi" title="\phi" class="math inline"> a 3-component unit vector.</p>
+<p>In lattice action form, we have (see <a href="https://arxiv.org/abs/1409.1704">Alles et al, 2014</a>:</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20S_%7BL%7D%20%3D%20A_%7BL%7D%20-%20i%20%5Ctheta%20Q_%7BL%7D" alt="S_{L} = A_{L} - i \theta Q_{L}" title="S_{L} = A_{L} - i \theta Q_{L}" class="math inline"></p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A_%7BL%7D%20%3D%20-%5Cfrac%7B1%7D%7Bg_%7BL%7D%7D%5Csum_%7Bx%2C%5Cmu%7D%5Cleft%28%5Cphi_%7Bx%7D%5Ccdot%20%5Cphi_%7Bx%2B%5Chat%7B%5Cmu%7D%7D%5Cright%29" alt="A_{L} = -\frac{1}{g_{L}}\sum_{x,\mu}\left(\phi_{x}\cdot \phi_{x+\hat{\mu}}\right)" title="A_{L} = -\frac{1}{g_{L}}\sum_{x,\mu}\left(\phi_{x}\cdot \phi_{x+\hat{\mu}}\right)" class="math inline"></p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D%20%3D%20%5Csum_%7Bx%7D%5Csum_%7B%5CDelta%7D%20Q_%7BL%7D%20%5CDelta" alt="Q_{L} = \sum_{x}\sum_{\Delta} Q_{L} \Delta" title="Q_{L} = \sum_{x}\sum_{\Delta} Q_{L} \Delta" class="math inline"></p>
+<p>where <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7B%5Cphi%7D" alt="\vec{\phi}" title="\vec{\phi}" class="math inline"> is a 3-component unit vector (<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7B%5Cphi%7D%20%5Ccdot%5Cvec%7B%5Cphi%7D%20%3D%201" alt="\vec{\phi} \cdot\vec{\phi} = 1" title="\vec{\phi} \cdot\vec{\phi} = 1" class="math inline">) and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline"> is the total topological charge on the lattice.</p>
+</section>
+<section id="regularization-of-the-topological-charge" class="level4">
+<h4 class="anchored" data-anchor-id="regularization-of-the-topological-charge">Regularization of the topological charge</h4>
+<p>The topological charge has been defined via sums over triangles created by cutting each square plaquette along the diagonal. Each vertex is labeled (numbered counter-clockwise), such that we call the fields at the sites of the vertices <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7B%5Cphi%7D_%7B1%7D%2C%20%5Cvec%7B%5Cphi%7D_%7B2%7D%2C" alt="\vec{\phi}_{1}, \vec{\phi}_{2}," title="\vec{\phi}_{1}, \vec{\phi}_{2}," class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7B%5Cphi%7D_%7B3%7D" alt="\vec{\phi}_{3}" title="\vec{\phi}_{3}" class="math inline"></p>
+<p>The topological charge over each triangle obeys</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20%5Cexp%282%20%5Cpi%20i%20Q_%7BL%7D%28%5CDelta%29%29%20%3D%20%5Cfrac%7B1%7D%7B%5Crho%7D%5Cleft%281%20%2B%20%5Cvec%7B%5Cphi%7D_%7B1%7D%5Ccdot%5Cvec%7B%5Cphi%7D_%7B2%7D%20%2B%20%5Cvec%7B%5Cphi%7D_%7B2%7D%5Ccdot%5Cvec%7B%5Cphi%7D_%7B3%7D%20%2B%20%5Cvec%7B%5Cphi%7D_%7B3%7D%5Ccdot%5Cvec%7B%5Cphi%7D_%7B1%7D%20%2B%20i%20%5Cvec%7B%5Cphi%7D_%7B1%7D%20%5Ccdot%20%28%5Cvec%7B%5Cphi%7D_%7B2%7D%5Ctimes%5Cvec%7B%5Cphi%7D_%7B3%7D%29%5Cright%29" alt="\exp(2 \pi i Q_{L}(\Delta)) = \frac{1}{\rho}\left(1 + \vec{\phi}_{1}\cdot\vec{\phi}_{2} + \vec{\phi}_{2}\cdot\vec{\phi}_{3} + \vec{\phi}_{3}\cdot\vec{\phi}_{1} + i \vec{\phi}_{1} \cdot (\vec{\phi}_{2}\times\vec{\phi}_{3})\right)" title="\exp(2 \pi i Q_{L}(\Delta)) = \frac{1}{\rho}\left(1 + \vec{\phi}_{1}\cdot\vec{\phi}_{2} + \vec{\phi}_{2}\cdot\vec{\phi}_{3} + \vec{\phi}_{3}\cdot\vec{\phi}_{1} + i \vec{\phi}_{1} \cdot (\vec{\phi}_{2}\times\vec{\phi}_{3})\right)" class="math display"></p>
+<p>with</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20%5Crho%5E%7B2%7D%20%3D%202%281%2B%5Cvec%7B%5Cphi%7D_%7B1%7D%5Ccdot%5Cvec%7B%5Cphi%7D_%7B2%7D%29%281%20%2B%20%5Cvec%7B%5Cphi%7D_%7B2%7D%5Ccdot%5Cvec%7B%5Cphi%7D_%7B3%7D%29%281%2B%20%5Cvec%7B%5Cphi%7D_%7B3%7D%5Ccdot%5Cvec%7B%5Cphi%7D_%7B1%7D%29" alt="\rho^{2} = 2(1+\vec{\phi}_{1}\cdot\vec{\phi}_{2})(1 + \vec{\phi}_{2}\cdot\vec{\phi}_{3})(1+ \vec{\phi}_{3}\cdot\vec{\phi}_{1})" title="\rho^{2} = 2(1+\vec{\phi}_{1}\cdot\vec{\phi}_{2})(1 + \vec{\phi}_{2}\cdot\vec{\phi}_{3})(1+ \vec{\phi}_{3}\cdot\vec{\phi}_{1})" class="math display"></p>
+<p>and</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20Q_%7BL%7D%28%5CDelta%29%20%5Cin%20%5Cleft%5B-%5Cfrac%7B1%7D%7B2%7D%2C%20%5Cfrac%7B1%7D%7B2%7D%5Cright%5D" alt="Q_{L}(\Delta) \in \left[-\frac{1}{2}, \frac{1}{2}\right]" title="Q_{L}(\Delta) \in \left[-\frac{1}{2}, \frac{1}{2}\right]" class="math display"></p>
+<p>We use the arcsin of the quantity <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cexp%282%20%5Cpi%20i%20Q_%7BL%7D%28%5CDelta%29%29" alt="\exp(2 \pi i Q_{L}(\Delta))" title="\exp(2 \pi i Q_{L}(\Delta))" class="math inline"> to compute <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D%28%5CDelta%29" alt="Q_{L}(\Delta)" title="Q_{L}(\Delta)" class="math inline">, as in C++ the domain of arcsin is symmetric about <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%200" alt="0" title="0" class="math inline">, which prevents the need to adjust the domain to fit the expectation given above.</p>
+<p><a href="./nonlinearsigma/RegularizingQL.html">Here</a> we provide a deeper dive into the topological charge and how it is regularized on triangles.</p>
+</section>
+<section id="analytic-continuation" class="level4">
+<h4 class="anchored" data-anchor-id="analytic-continuation">Analytic continuation</h4>
+<p>The simulation is run for imaginary values of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline">, which means we must analytically continue our results for real <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline">. To do this, we fit our results to a curve and then substitute our imaginary <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%20%5Ctheta%20%3D%20%5Cnu" alt="i \theta = \nu" title="i \theta = \nu" class="math inline"> for a real <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta%20%3D%20-i%20%5Cnu" alt="\theta = -i \nu" title="\theta = -i \nu" class="math inline">.</p>
+</section>
+<section id="the-mass-gap" class="level4">
+<h4 class="anchored" data-anchor-id="the-mass-gap">The mass gap</h4>
+<p>Our goal with this project is to determine the mass gap, which should vanish as <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta%20%5Cto%20%5Cpi" alt="\theta \to \pi" title="\theta \to \pi" class="math inline">. The mass gap is the inverse of the correlation length, which we compute in the simulation.</p>
+<div class="alert alert-warning">
+<p>The correlation length should be a real number, but our simulations are currently returning a complex result, due to the complexity of the correlation function. More investigation is required here.</p>
+</div>
+<p><a href="./nonlinearsigma/MassGap.html">Here</a> we provide a deeper dive into the mass gap and compare our results prior to analytical continuation to Alles et al</p>
+</section>
+</section>
+</section>
+<section id="summary-of-preliminary-results" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-preliminary-results">Summary of Preliminary Results</h2>
+<p>Preliminary simulation code is being run on small lattices (<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20L%20%3D%2010%2C40%2C80" alt="L = 10,40,80" title="L = 10,40,80" class="math inline">) with the intent to scale to larger lattices in the next few months.</p>
+<p>Early results look promising. For example, when comparing our results for the topological charge QL to those of Allés et al, we see a similar trend in the data:</p>
+<p><img src="./Figs_README/AllesPRBQ_L.png" width="425"><img src="./Figs_README/Q_L_preliminary.jpg" width="425"></p>
+<p>We expect as the size of the lattice grows (to 180 x 180, as was used in the PRB paper), our <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> plot should match theirs.</p>
+</section>
+<section id="current-issues-and-open-questions" class="level2">
+<h2 class="anchored" data-anchor-id="current-issues-and-open-questions">Current issues and open questions</h2>
+<p>Issues we are working on resolving: * The topological charge calculation (<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline">) is currently returning non-integer values * The correlation function at the smallest nonzero lattice momentum <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%202%5Cpi%2FL" alt="2\pi/L" title="2\pi/L" class="math inline"> is a complex number, therefore so is our correlation length. Correlation length at imaginary <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline"> should be real * Additionally, when this value is computed in C++, the results are significantly off from the calculation done in Python * Currently, the simulation returns the average value of the correlation function computed after thermalization. There is no way to change this after the simulation is run, and we don’t have the code set up yet to return any error on the correlation function. That may come in future versions of the code.</p>
+<p>Research questions and next steps * What can a ML model learn from the configuration data we have so far? * How will Complex Langevin results differ from these if at all?</p>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+</section>
+</section>
+<section id="complex-langevin-approach" class="level2">
+<h2 class="anchored" data-anchor-id="complex-langevin-approach">Complex Langevin Approach</h2>
+Another approach to systems with a sign problem is to use Complex Langevin. This has been demonstrated to be successful across disciplines and systems.
+<div class="alert alert-warning">
+Cite at least 6 papers – condensed matter, HEP, QCD
+</div>
+The complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see <a href="https://www.sciencedirect.com/science/article/pii/S0370157320303422">Berger et al, 2021</a>
+<div class="alert alert-warning">
+Cite more? E.g. “The complex langevin method: when can it be trusted?”
+</div>
+It can sometimes converge to mathematically correct but physically invalid solutions (see <a href="https://arxiv.org/abs/0710.3756">Guralnik and Pehlevan, 2008</a>. It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time
+<div class="alert alert-warning">
+Pick a few of the relevant citations here
+</div>
 
 
 </section>
