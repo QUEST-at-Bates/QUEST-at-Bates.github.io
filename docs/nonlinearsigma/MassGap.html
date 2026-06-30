@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Regularizing QL on the lattice – QUEST at Bates College</title>
+<title>The Mass Gap – QUEST at Bates College</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,41 +24,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -211,19 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-mass-gap" id="toc-the-mass-gap" class="nav-link active" data-scroll-target="#the-mass-gap">The mass gap</a>
-  <ul class="collapse">
-  <li><a href="#monte-carlo-with-analytical-continuation" id="toc-monte-carlo-with-analytical-continuation" class="nav-link" data-scroll-target="#monte-carlo-with-analytical-continuation">Monte Carlo with Analytical Continuation</a>
-  <ul class="collapse">
-  <li><a href="#markov-chain-monte-carlo" id="toc-markov-chain-monte-carlo" class="nav-link" data-scroll-target="#markov-chain-monte-carlo">Markov Chain Monte Carlo</a></li>
-  <li><a href="#calculating-observables" id="toc-calculating-observables" class="nav-link" data-scroll-target="#calculating-observables">Calculating observables</a></li>
-  <li><a href="#analytic-continuation" id="toc-analytic-continuation" class="nav-link" data-scroll-target="#analytic-continuation">Analytic continuation</a></li>
-  <li><a href="#testing-and-troubleshooting" id="toc-testing-and-troubleshooting" class="nav-link" data-scroll-target="#testing-and-troubleshooting">Testing and Troubleshooting</a></li>
-  <li><a href="#systematics" id="toc-systematics" class="nav-link" data-scroll-target="#systematics">Systematics</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  </ul></li>
-  <li><a href="#complex-langevin-approach" id="toc-complex-langevin-approach" class="nav-link" data-scroll-target="#complex-langevin-approach">Complex Langevin Approach</a></li>
-  </ul></li>
+  <li><a href="#the-mass-gap" id="toc-the-mass-gap" class="nav-link active" data-scroll-target="#the-mass-gap">The mass gap</a></li>
   </ul>
 </nav>
     </div>
@@ -232,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Regularizing QL on the lattice</h1>
+<h1 class="title">The Mass Gap</h1>
 </div>
 
 
@@ -262,66 +215,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="alert alert-warning">
 <p>The correlation length should be a real number, but our simulations are currently returning a complex result, due to the complexity of the correlation function. More investigation is required here.</p>
 </div>
-<section id="monte-carlo-with-analytical-continuation" class="level2">
-<h2 class="anchored" data-anchor-id="monte-carlo-with-analytical-continuation">Monte Carlo with Analytical Continuation</h2>
-<section id="markov-chain-monte-carlo" class="level3">
-<h3 class="anchored" data-anchor-id="markov-chain-monte-carlo">Markov Chain Monte Carlo</h3>
-<div class="alert alert-warning">
-<p>Fill in with the algorithm for MCMC on this system.</p>
-<p>Discuss the way the lattice is updated, including exceptional configs? You can link to the later discussion of that.</p>
-</div>
-</section>
-<section id="calculating-observables" class="level3">
-<h3 class="anchored" data-anchor-id="calculating-observables">Calculating observables</h3>
-<div class="alert alert-warning">
-<p>Fill in – discuss which observables we calculate, which configs we output, and why.</p>
-</div>
-</section>
-<section id="analytic-continuation" class="level3">
-<h3 class="anchored" data-anchor-id="analytic-continuation">Analytic continuation</h3>
-<p>The simulation is run for imaginary values of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline">, which means we must analytically continue our results for real <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline">. To do this, we fit our results to a curve and then substitute our imaginary <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%20%5Ctheta%20%3D%20%5Cnu" alt="i \theta = \nu" title="i \theta = \nu" class="math inline"> for a real <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta%20%3D%20-i%20%5Cnu" alt="\theta = -i \nu" title="\theta = -i \nu" class="math inline">.</p>
-</section>
-<section id="testing-and-troubleshooting" class="level3">
-<h3 class="anchored" data-anchor-id="testing-and-troubleshooting">Testing and Troubleshooting</h3>
-<section id="optimization-and-parallelization" class="level4">
-<h4 class="anchored" data-anchor-id="optimization-and-parallelization">Optimization and parallelization</h4>
-<div class="alert alert-warning">
-<p>Add a speedup plot here to show your parallelization results.</p>
-</div>
-</section>
-</section>
-<section id="systematics" class="level3">
-<h3 class="anchored" data-anchor-id="systematics">Systematics</h3>
-<div class="alert alert-warning">
-<p>Fill in with plots of systematic tests. To include:</p>
-<p>Determining thermalization</p>
-<p>Accounting for autocorrelation</p>
-<p>Error calculation</p>
-<p>Extrapolating to continuum/thermodynamic limits?</p>
-</div>
-</section>
-<section id="results" class="level3">
-<h3 class="anchored" data-anchor-id="results">Results</h3>
-</section>
-</section>
-<section id="complex-langevin-approach" class="level2">
-<h2 class="anchored" data-anchor-id="complex-langevin-approach">Complex Langevin Approach</h2>
-Another approach to systems with a sign problem is to use Complex Langevin. This has been demonstrated to be successful across disciplines and systems.
-<div class="alert alert-warning">
-Cite at least 6 papers – condensed matter, HEP, QCD
-</div>
-The complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see <a href="https://www.sciencedirect.com/science/article/pii/S0370157320303422">Berger et al, 2021</a>)
-<div class="alert alert-warning">
-Cite more? E.g. “The complex langevin method: when can it be trusted?”
-</div>
-It can sometimes converge to mathematically correct but physically invalid solutions (see <a href="https://arxiv.org/abs/0710.3756">Guralnik and Pehlevan, 2008</a>). It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time
-<div class="alert alert-warning">
-Pick a few of the relevant citations here
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

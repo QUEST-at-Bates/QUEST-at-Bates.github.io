@@ -176,14 +176,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-q_l" id="toc-what-is-q_l" class="nav-link active" data-scroll-target="#what-is-q_l">What is <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline">?</a>
+  <li><a href="#what-is-ql" id="toc-what-is-ql" class="nav-link active" data-scroll-target="#what-is-ql">What is QL?</a>
   <ul class="collapse">
   <li><a href="#calculating-and-regularizing" id="toc-calculating-and-regularizing" class="nav-link" data-scroll-target="#calculating-and-regularizing">Calculating and regularizing</a></li>
-  </ul></li>
-  <li><a href="#non-integer-q_l" id="toc-non-integer-q_l" class="nav-link" data-scroll-target="#non-integer-q_l">Non-integer <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"></a>
-  <ul class="collapse">
-  <li><a href="#exceptional-triangles" id="toc-exceptional-triangles" class="nav-link" data-scroll-target="#exceptional-triangles">Exceptional triangles</a></li>
-  <li><a href="#c-asin-and-acos" id="toc-c-asin-and-acos" class="nav-link" data-scroll-target="#c-asin-and-acos">C++ asin and acos </a><a id="QL_trig_comp" class="nav-link" data-scroll-target="undefined"></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -210,12 +205,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="alert alert-warning">
-<p>We solved this problem – add to these notes how we did this (see your notion notes from last year)</p>
-<p>Still explain the challenges and how you solved the problem</p>
-</div>
-<section id="what-is-q_l" class="level1">
-<h1>What is <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline">?</h1>
+<section id="what-is-ql" class="level1">
+<h1>What is QL?</h1>
 <p>The topological charge, <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline">, is a stable defect in the fields. It takes on quantized values (it is not a continuous number), and it characterizes phases of matter. Examples of other topological charges include the number of vortices formed in rotating Bose-Einstein condensates (as the rotation increases in a continuous way, the number of vortices experiences a quantized jump from 0 to 1, and so on). The vortices themselves would be examples of solitons, or topological defects, and the number of them is the topological charge of the system.</p>
 <div class="alert alert-warning">
 <p>Fill in with more detail.</p>
@@ -240,41 +231,6 @@ ul.task-list li input[type="checkbox"] {
 <p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20%5Cvec%7Bs%7D_%7B1%7D%5Ccdot%28%5Cvec%7Bs%7D_%7B2%7D%20%20%5Ctimes%20%5Cvec%7Bs%7D_%7B3%7D%29%3D0" alt="\vec{s}_{1}\cdot(\vec{s}_{2}  \times \vec{s}_{3})=0" title="\vec{s}_{1}\cdot(\vec{s}_{2}  \times \vec{s}_{3})=0" class="math display"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%201%20%2B%20%5Cvec%7Bs%7D_%7B1%7D%20%5Ccdot%20%5Cvec%7Bs%7D_%7B2%7D%20%5Ccdot%20%5Cvec%7Bs%7D_%7B3%7D%20%2B%5Cvec%7Bs%7D_%7B3%7D%5Ccdot%20%5Cvec%7Bs%7D_%7B1%7D%20%5Cleq%200" alt="1 + \vec{s}_{1} \cdot \vec{s}_{2} \cdot \vec{s}_{3} +\vec{s}_{3}\cdot \vec{s}_{1} \leq 0" title="1 + \vec{s}_{1} \cdot \vec{s}_{2} \cdot \vec{s}_{3} +\vec{s}_{3}\cdot \vec{s}_{1} \leq 0" class="math display"></p>
 <p>Where <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7Bs%7D_%7B1%7D%2C%20%5Cvec%7Bs%7D_%7B2%7D" alt="\vec{s}_{1}, \vec{s}_{2}" title="\vec{s}_{1}, \vec{s}_{2}" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7Bs%7D_%7B3%7D" alt="\vec{s}_{3}" title="\vec{s}_{3}" class="math inline"> here represent the vector fields <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7Bs%7D" alt="\vec{s}" title="\vec{s}" class="math inline"> (which we refer to as <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7B%5Cphi%7D" alt="\vec{\phi}" title="\vec{\phi}" class="math inline"> in this work) on the three counterclockwise vertices of the triangles defined above.</p>
 <p>The randomness introduced in Monte Carlo simulations can make it challenging to ensure that the spin configurations we choose satisfy these equations, but it is crucial that we do so. In all cases where either of these relations is defied, the total topological charge <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D%20%3D%20%5Csum_%7B%5CDelta%7D%20Q_%7B%7D%28%5CDelta%29" alt="Q_{L} = \sum_{\Delta} Q_{}(\Delta)" title="Q_{L} = \sum_{\Delta} Q_{}(\Delta)" class="math inline"> returns non-integer (i.e.&nbsp;invalid) numbers. Ensuring that these relations are met adds computational time to our simulation, but is well worth the effort.</p>
-<div class="alert alert-warning">
-<p>Add some figures demonstrating the relationship between non-integer <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline"> and exceptional spin configurations.</p>
-<p>Some definitions to introduce: exceptional triangle for a single set of invalid relationships, exceptional configuration for any lattice that has at least one exceptional triangle.</p>
-</div>
-</section>
-</section>
-<section id="non-integer-q_l" class="level1">
-<h1>Non-integer <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"></h1>
-<p>Early tests of the code revealed that it was not yielding integer values for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline">, at least not all the time. When the code returned an integer value for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline">, it was always one of the following: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20-1%2C%200%2C%201%2C%202%2C%203" alt="-1, 0, 1, 2, 3" title="-1, 0, 1, 2, 3" class="math inline">. And in the event that <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> was a non-integer, it would often be a very large number. This is true for calculations of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> using both arccos and arcsin, but the problem is much more severe for arccos (e.g.&nbsp;when arccos was used to compute <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline">, it could go up to <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20140" alt="140" title="140" class="math inline">, while arcsin’s largest values were under <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%2020" alt="20" title="20" class="math inline">). We discuss possible reasons for the difference in output using arcsin and arccos <a href="#QL_trig_comp">below</a>.</p>
-<p>In the figure below, we can see results for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> calculated using arccos (top) and arcsin (bottom). The x-axis represents individual runs (the numbering is arbitrary, but represents unique parameter combinations). On the y-axis are the values of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> calculated at 100 steps in the Monte Carlo trajectory, demonstrating the spread of values.</p>
-<p><img src="images/QL_arcsin_v_arccos_noninteger.png" class="img-fluid"></p>
-<p><strong>Figure and analysis credit: Andy Esseln, Smith College</strong></p>
-<div class="alert alert-warning">
-<p>Update this figure – reduce alpha and maybe plot both on the same axes to show the massive difference in size? Is there a way to highlight where integers do occur or are these all non-integer values?</p>
-</div>
-<p>Length and topological term <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline"> clearly both have an effect on the number of integer values of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline">. The effect of length appears to be stronger than that of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%5Ctheta" alt="i\theta" title="i\theta" class="math inline">, and its existence makes sense, as there are more lattice sites and more places where problems can arise and compound. Interestingly, though, it appears not just to decrease the number of integer values, but the fraction of values which are integers decreases rapidly with lattice length.</p>
-<p>It is less clear how <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%20%5Ctheta" alt="i \theta" title="i \theta" class="math inline"> introduces this issue, although it could be as simple as shifting <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline"> away from zero shifts <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> away from zero (an integer) and therefore the effects of length are more obvious at higher <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%20%5Ctheta" alt="i \theta" title="i \theta" class="math inline">. The figure below clearly illustrates the larger effect of length, as for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20L%20%3D%2040" alt="L = 40" title="L = 40" class="math inline">, we have almost zero integer values for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline"> even at <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%20%5Ctheta%20%3D%200" alt="i \theta = 0" title="i \theta = 0" class="math inline">.</p>
-<p><img src="images/integer_proportions_L.png" class="img-fluid"></p>
-<p><strong>Figure and analysis credit: Andy Esseln, Smith College</strong></p>
-<div class="alert alert-warning">
-<p>Maybe add another figure with <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20L" alt="L" title="L" class="math inline"> on the x axis so we can see the shape of the dependence of prop(integers) on <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20L" alt="L" title="L" class="math inline">?</p>
-</div>
-<section id="exceptional-triangles" class="level2">
-<h2 class="anchored" data-anchor-id="exceptional-triangles">Exceptional triangles</h2>
-<p>The method used to regularize the topological charge by defining it on triangles rather than points is meant to yield integer values for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline">. However, this is only the case if the field configurations are not exceptional (see <a href="https://doi.org/10.1016/0550-3213(81)90568-X">Berg and Lüscher, 1981</a>). Exceptional configurations occur when either of the following conditions are met:</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7B%5Cphi%7D_%7B1%7D%20%5Ccdot%20%28%5Cvec%7B%5Cphi%7D_%7B2%7D%20%5Ctimes%20%5Cvec%7B%5Cphi%7D_%7B3%7D%29%20%3D%200" alt="\vec{\phi}_{1} \cdot (\vec{\phi}_{2} \times \vec{\phi}_{3}) = 0" title="\vec{\phi}_{1} \cdot (\vec{\phi}_{2} \times \vec{\phi}_{3}) = 0" class="math inline"></p>
-<p>or</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%201%20%2B%20%5Cvec%7B%5Cphi%7D_%7B1%7D%20%5Ccdot%20%5Cvec%7B%5Cphi%7D_%7B2%7D%20%2B%20%20%5Cvec%7B%5Cphi%7D_%7B2%7D%20%5Ccdot%20%5Cvec%7B%5Cphi%7D_%7B3%7D%20%2B%20%20%5Cvec%7B%5Cphi%7D_%7B3%7D%20%5Ccdot%20%5Cvec%7B%5Cphi%7D_%7B1%7D%20%5Cleq%200" alt="1 + \vec{\phi}_{1} \cdot \vec{\phi}_{2} +  \vec{\phi}_{2} \cdot \vec{\phi}_{3} +  \vec{\phi}_{3} \cdot \vec{\phi}_{1} \leq 0" title="1 + \vec{\phi}_{1} \cdot \vec{\phi}_{2} +  \vec{\phi}_{2} \cdot \vec{\phi}_{3} +  \vec{\phi}_{3} \cdot \vec{\phi}_{1} \leq 0" class="math inline">.</p>
-<p>While it appears that the existence of exceptional configurations always leads to non-integer values of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline">, it is also the case that in some instances with no exceptional configurations, we still have non-integer values for the topological charge. This means that exceptional configurations cannot be the only cause of this breakdown, although it does appear to be a factor.</p>
-</section>
-<section id="c-asin-and-acos" class="level2">
-<h2 class="anchored" data-anchor-id="c-asin-and-acos">C++ asin and acos <a id="QL_trig_comp"></a></h2>
-<div class="alert alert-warning">
-<p>Add a few figures here and discuss the differences in domain for asin and acos in C++ – also why might it be that even after converting the results of acos to match those of asin, some of them are so wrong?? Are these the cases that occur along the asymptote of asin?</p>
-</div>
 
 
 </section>
