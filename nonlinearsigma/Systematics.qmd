@@ -1,0 +1,22 @@
+---
+title: "Systematics"
+format: 
+  html:
+    link-external-newwindow: true
+    html-math-method: webtex
+editor: source
+---
+# Systematic Effects
+
+<div class="alert alert-warning">Fill in with plots of systematic tests. To include:
+    
+Determining thermalization
+    
+Accounting for autocorrelation
+    
+Error calculation
+
+Extrapolating to continuum/thermodynamic limits?
+</div>
+
+

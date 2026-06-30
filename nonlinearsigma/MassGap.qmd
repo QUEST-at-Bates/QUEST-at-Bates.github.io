@@ -1,0 +1,84 @@
+---
+title: "Regularizing QL on the lattice"
+format: 
+  html:
+    link-external-newwindow: true
+    html-math-method: webtex
+editor: source
+---
+
+# The mass gap
+
+<div class="alert alert-warning">
+Add some content here about Haldane's conjecture and the mass gap, how it's defined, and how it relates to the correlation funciton
+</div>
+
+Our goal with this project is to determine the mass gap, which should vanish as $\theta \to \pi$. The behavior of the mass gap as a function of $\theta$ near zero should obey the following equation:
+
+$m(\theta) \propto (\pi - \theta)^{\epsilon_{WZNW}} \log \left(\frac{1}{\pi - \theta} \right)^{-\beta_{WZNW}}$
+
+From [Allés et al](), "a direct detection of the power of the logarithmic correction in \[this equation\] requires an extremely accurate control of the statistics and error bars, an endeavor that seems to lie beyond present-day capabilities."
+
+One of the goals of this project is to use CL to improve the error on our calculation of the mass gap in order to determine the exponent of the logarithmic correction, $\beta_{WZNW}$.
+
+The mass gap is the inverse of the correlation length, which we compute in the simulation.
+
+<div class="alert alert-warning">
+The correlation length should be a real number, but our simulations are currently returning a complex result, due to the complexity of the correlation function. More investigation is required here.
+</div>
+
+## Monte Carlo with Analytical Continuation
+
+### Markov Chain Monte Carlo
+
+<div class="alert alert-warning">Fill in with the algorithm for MCMC on this system.
+    
+Discuss the way the lattice is updated, including exceptional configs? You can link to the later discussion of that.
+</div>
+
+### Calculating observables
+
+<div class="alert alert-warning">Fill in -- discuss which observables we calculate, which configs we output, and why.
+</div>
+
+### Analytic continuation
+
+The simulation is run for imaginary values of $\theta$, which means we must analytically continue our results for real $\theta$. To do this, we fit our results to a curve and then substitute our imaginary $i \theta = \nu$ for a real $\theta = -i \nu$.
+
+### Testing and Troubleshooting
+
+#### Optimization and parallelization
+
+<div class="alert alert-warning">Add a speedup plot here to show your parallelization results.
+</div>
+
+
+
+### Systematics
+
+<div class="alert alert-warning">Fill in with plots of systematic tests. To include:
+    
+Determining thermalization
+    
+Accounting for autocorrelation
+    
+Error calculation
+
+Extrapolating to continuum/thermodynamic limits?
+</div>
+
+### Results
+
+## Complex Langevin Approach
+
+Another approach to systems with a sign problem is to use Complex Langevin. This has been demonstrated to be successful across disciplines and systems.
+<div class="alert alert-warning"> Cite at least 6 papers -- condensed matter, HEP, QCD </div>
+
+The complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see [Berger et al, 2021](https://www.sciencedirect.com/science/article/pii/S0370157320303422)) <div class="alert alert-warning"> Cite more? E.g. "The complex langevin method: when can it be trusted?" </div> 
+
+It can sometimes converge to mathematically correct but physically invalid solutions (see [Guralnik and Pehlevan, 2008](https://arxiv.org/abs/0710.3756)). It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time <div class="alert alert-warning"> Pick a few of the relevant citations here </div>
+
+
+```python
+
+```
