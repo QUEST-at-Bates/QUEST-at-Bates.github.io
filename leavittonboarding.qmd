@@ -28,6 +28,8 @@ If you want to sign in off campus, you have to use port 222, and you must specif
 ssh -p 222 yourusername@leavitt.bates.edu
 ```
 
+It will prompt you to enter your password -- this will be your Bates password. You won't be able to see what you're typing so just be careful.
+
 ## Navigating with the command line
 
 Read [this article](https://www.codecademy.com/article/ready-command-line-commands) on command line commands and familiarize yourself with how to change directories (cd), list the files in a directory (ls), copy files (cp and cp -r), and determine your directory’s address (pwd). Hang on to this article, because you may need to do other operations and it’s a useful resource.

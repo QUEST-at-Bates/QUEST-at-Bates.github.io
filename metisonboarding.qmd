@@ -26,7 +26,7 @@ Look in the Launcher (on the right hand side of the screen) and select under “
 In the terminal, use the command “cd” to ensure you are in your home directory. Then you will create a symlink. The way to do this is shown below — you will have to modify this to match your specific scenario (entering your advisor’s name where it says Faculty\ Name and your own where it says Student\ Name). Remember those backslashes are critical! Also the “.” at the end is also critical — it puts the Etna link in your current directory (which should be your home directory). 
 
 ```bash
-ln -s /usr/netapp/faculty/cberger3/etna/Scholarship/Faculty\ Name/Students/Student\ Name .
+ln -s /usr/netapp/etna/Scholarship/Faculty\ Name/Students/Student\ Name .
 ```
 
 When you complete this, you should see a new folder appear in the browser to the left — it will have your name on it, and if you open it, you should see the data you copied earlier inside.
