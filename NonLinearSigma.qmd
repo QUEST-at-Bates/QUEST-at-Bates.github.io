@@ -6,7 +6,68 @@ format:
     html-math-method: webtex
 editor: source
 ---
-This page needs to be better organized -- think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?
+
+# Background and Methodology
+
+## Research Question
+
+Can complex Langevin improve upon calculations of the mass gap for the $2D$ $\mathcal{O}(3)$ nonlinear sigma model with topological term $\theta \approx \pi$? We first attempt to recreate a method that calculates the critical exponents for the mass gap using standard Markov-Chain Monte Carlo (MCMC) with $\nu = i \theta$ and analytically continues to real $\theta$. 
+
+Then, we perform the same calculation using complex Langevin to circumvent the sign problem created by a nonzero $\theta$.
+
+## Lattice Action
+
+In the continuum, the model has action
+
+$S = \frac{1}{2g} \int d^{2} x \left( \partial_{\mu} \vec{\phi}(x)\right)^{2} - i \theta \int d^{2} x Q(x)$
+
+with
+
+$Q(x) = \frac{1}{8 \pi} \epsilon^{\mu \nu} \epsilon_{abc} \partial_{\mu} \phi^{b}(x) \partial_{\nu}\phi^{c}(x)$
+
+with $\phi$ a 3-component unit vector.
+
+In lattice action form, we have (see [Alles et al, 2014](https://arxiv.org/abs/1409.1704)):
+
+$S_{L} = A_{L} - i \theta Q_{L}$
+
+
+$A_{L} = -\frac{1}{g_{L}}\sum_{x,\mu}\left(\phi_{x}\cdot \phi_{x+\hat{\mu}}\right)$
+
+$Q_{L} = \sum_{x}\sum_{\Delta} Q_{L} \Delta$
+
+where $\vec{\phi}$ is a 3-component unit vector ($\vec{\phi} \cdot\vec{\phi} = 1$) and $Q_{L}$ is the total topological charge on the lattice, calculated by summing the charge over all the triangles created by dividing each square on the lattice into two triangles (details on this method can be found in the section on [Regularizing QL](nonlinearsigma/RegularizingQL.qmd)). 
+
+## Observables on the Lattice
+
+STOPPED HERE --
+
+## Monte Carlo with Analytical Continuation
+This approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the $2D$ $\mathcal{O}(3)$ nonlinear sigma model where the topological term $\theta$ is assigned an imaginary value.
+
+
+## Complex Langevin
+
+# Summary of Preliminary Results
+
+## Observables with Imaginary Theta
+
+### Topological Charge
+
+### Correlation Function
+
+### Mass Gap
+
+### Magnetic Susceptibility
+
+## Observables after Analytic Continuation
+
+### Mass Gap
+
+
+## Observables using Complex Langevin
+
+### Mass Gap
 
 Pages that exist:
 
@@ -25,34 +86,6 @@ Pages that exist:
 
 # Simulation and Analysis Code
 
-## Monte Carlo + analytic continuation approach
-
-This approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the $2D$ $\mathcal{O}(3)$ nonlinear sigma model where the topological term $\theta$ is assigned an imaginary value.
-
-### Background and Methodology
-
-#### Lattice Action
-
-In the continuum, the model has action
-
-$S = \frac{1}{2g} \int d^{2} x \left( \partial_{\mu} \vec{\phi}(x)\right)^{2} - i \theta \int d^{2} x Q(x)$
-
-with
-
-$Q(x) = \frac{1}{8 \pi} \epsilon^{\mu \nu} \epsilon_{abc} \partial_{\mu} \phi^{b}(x) \partial_{\nu}\phi^{c}(x)$
-
-with $\phi$ a 3-component unit vector.
-
-In lattice action form, we have (see [Alles et al, 2014](https://arxiv.org/abs/1409.1704):
-
-$S_{L} = A_{L} - i \theta Q_{L}$
-
-
-$A_{L} = -\frac{1}{g_{L}}\sum_{x,\mu}\left(\phi_{x}\cdot \phi_{x+\hat{\mu}}\right)$
-
-$Q_{L} = \sum_{x}\sum_{\Delta} Q_{L} \Delta$
-
-where $\vec{\phi}$ is a 3-component unit vector ($\vec{\phi} \cdot\vec{\phi} = 1$) and $Q_{L}$ is the total topological charge on the lattice. 
 
 #### Regularization of the topological charge
 

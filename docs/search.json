@@ -91,7 +91,7 @@
     "href": "NonLinearSigma.html",
     "title": "NonLinear Sigma Model with Topological Term",
     "section": "",
-    "text": "This page needs to be better organized – think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?\nPages that exist:\nMass Gap\nRegularizing QL\nSystematics\nMC Code\nCL Code\nAnalysis Pipeline"
+    "text": "Can complex Langevin improve upon calculations of the mass gap for the   nonlinear sigma model with topological term ? We first attempt to recreate a method that calculates the critical exponents for the mass gap using standard Markov-Chain Monte Carlo (MCMC) with  and analytically continues to real .\nThen, we perform the same calculation using complex Langevin to circumvent the sign problem created by a nonzero .\n\n\n\nIn the continuum, the model has action\n\nwith\n\nwith  a 3-component unit vector.\nIn lattice action form, we have (see Alles et al, 2014):\n\n\n\nwhere  is a 3-component unit vector () and  is the total topological charge on the lattice, calculated by summing the charge over all the triangles created by dividing each square on the lattice into two triangles (details on this method can be found in the section on Regularizing QL).\n\n\n\nSTOPPED HERE –\n\n\n\nThis approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the   nonlinear sigma model where the topological term  is assigned an imaginary value."
   },
   {
     "objectID": "NonLinearSigma.html#simulation-code-for-monte-carlo-approach",
@@ -532,5 +532,68 @@
     "title": "Old Content to maybe delete",
     "section": "",
     "text": "Another approach to systems with a sign problem is to use Complex Langevin. This has been demonstrated to be successful across disciplines and systems.\n\nCite at least 6 papers – condensed matter, HEP, QCD\n\nThe complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see Berger et al, 2021)\n\nCite more? E.g. “The complex langevin method: when can it be trusted?”\n\nIt can sometimes converge to mathematically correct but physically invalid solutions (see Guralnik and Pehlevan, 2008). It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time\n\nPick a few of the relevant citations here"
+  },
+  {
+    "objectID": "NonLinearSigma.html#observables-with-imaginary-theta",
+    "href": "NonLinearSigma.html#observables-with-imaginary-theta",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "Observables with Imaginary Theta",
+    "text": "Observables with Imaginary Theta\n\nTopological Charge\n\n\nCorrelation Function\n\n\nMass Gap\n\n\nMagnetic Susceptibility"
+  },
+  {
+    "objectID": "NonLinearSigma.html#observables-after-analytic-continuation",
+    "href": "NonLinearSigma.html#observables-after-analytic-continuation",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "Observables after Analytic Continuation",
+    "text": "Observables after Analytic Continuation\n\nMass Gap"
+  },
+  {
+    "objectID": "NonLinearSigma.html#section",
+    "href": "NonLinearSigma.html#section",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "",
+    "text": "This page needs to be better organized – think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?\nPages that exist:\nMass Gap\nRegularizing QL\nSystematics\nMC Code\nCL Code\nAnalysis Pipeline"
+  },
+  {
+    "objectID": "NonLinearSigma.html#summary-of-preliminary-results-1",
+    "href": "NonLinearSigma.html#summary-of-preliminary-results-1",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "Summary of Preliminary Results",
+    "text": "Summary of Preliminary Results\nPreliminary simulation code is being run on small lattices () with the intent to scale to larger lattices in the next few months.\nEarly results look promising. For example, when comparing our results for the topological charge QL to those of Allés et al, we see a similar trend in the data:\n\nWe expect as the size of the lattice grows (to 180 x 180, as was used in the PRB paper), our  plot should match theirs."
+  },
+  {
+    "objectID": "NonLinearSigma.html#observables-using-complex-langevin",
+    "href": "NonLinearSigma.html#observables-using-complex-langevin",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "Observables using Complex Langevin",
+    "text": "Observables using Complex Langevin\n\nMass Gap\nPages that exist:\nMass Gap\nRegularizing QL\nSystematics\nMC Code\nCL Code\nAnalysis Pipeline"
+  },
+  {
+    "objectID": "NonLinearSigma.html#monte-carlo-with-analytical-continuation",
+    "href": "NonLinearSigma.html#monte-carlo-with-analytical-continuation",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "",
+    "text": "This approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the   nonlinear sigma model where the topological term  is assigned an imaginary value."
+  },
+  {
+    "objectID": "NonLinearSigma.html#lattice-action",
+    "href": "NonLinearSigma.html#lattice-action",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "",
+    "text": "In the continuum, the model has action\n\nwith\n\nwith  a 3-component unit vector.\nIn lattice action form, we have (see Alles et al, 2014):\n\n\n\nwhere  is a 3-component unit vector () and  is the total topological charge on the lattice, calculated by summing the charge over all the triangles created by dividing each square on the lattice into two triangles (details on this method can be found in the section on Regularizing QL)."
+  },
+  {
+    "objectID": "NonLinearSigma.html#research-question",
+    "href": "NonLinearSigma.html#research-question",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "",
+    "text": "Can complex Langevin improve upon calculations of the mass gap for the   nonlinear sigma model with topological term ? We first attempt to recreate a method that calculates the critical exponents for the mass gap using standard Markov-Chain Monte Carlo (MCMC) with  and analytically continues to real .\nThen, we perform the same calculation using complex Langevin to circumvent the sign problem created by a nonzero ."
+  },
+  {
+    "objectID": "NonLinearSigma.html#observables-on-the-lattice",
+    "href": "NonLinearSigma.html#observables-on-the-lattice",
+    "title": "NonLinear Sigma Model with Topological Term",
+    "section": "",
+    "text": "STOPPED HERE –"
   }
 ]
