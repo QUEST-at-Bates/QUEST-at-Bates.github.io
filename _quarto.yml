@@ -43,7 +43,7 @@ website:
         - leavittonboarding.qmd
         - metisonboarding.qmd
         - href: https://www.bates.edu/research-resources/etna/
-          text: "Data Storage at Bates: Etna"
+          text: "Etna: Data Storage at Bates"
           target: _blank
 
     #- id: projects
