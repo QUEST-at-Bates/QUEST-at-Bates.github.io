@@ -91,10 +91,7 @@
     "href": "NonLinearSigma.html",
     "title": "NonLinear Sigma Model with Topological Term",
     "section": "",
-    "text": "This page needs to be better organized – think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?\nPages that exist:\nMass Gap\nRegularizing QL\nSystematics\nMC Code\nCL Code\nAnalysis Pipeline",
-    "crumbs": [
-      "NonLinear Sigma Model with Topological Term"
-    ]
+    "text": "This page needs to be better organized – think about what you want to have. Detailed code analysis should be sub-pages. Is this the page that emphasizes how to do things, with theory as a separate page?\nPages that exist:\nMass Gap\nRegularizing QL\nSystematics\nMC Code\nCL Code\nAnalysis Pipeline"
   },
   {
     "objectID": "NonLinearSigma.html#simulation-code-for-monte-carlo-approach",
@@ -121,20 +118,14 @@
     "href": "NonLinearSigma.html#summary-of-preliminary-results",
     "title": "NonLinear Sigma Model with Topological Term",
     "section": "Summary of Preliminary Results",
-    "text": "Summary of Preliminary Results\nPreliminary simulation code is being run on small lattices () with the intent to scale to larger lattices in the next few months.\nEarly results look promising. For example, when comparing our results for the topological charge QL to those of Allés et al, we see a similar trend in the data:\n\nWe expect as the size of the lattice grows (to 180 x 180, as was used in the PRB paper), our  plot should match theirs.",
-    "crumbs": [
-      "NonLinear Sigma Model with Topological Term"
-    ]
+    "text": "Summary of Preliminary Results\nPreliminary simulation code is being run on small lattices () with the intent to scale to larger lattices in the next few months.\nEarly results look promising. For example, when comparing our results for the topological charge QL to those of Allés et al, we see a similar trend in the data:\n\nWe expect as the size of the lattice grows (to 180 x 180, as was used in the PRB paper), our  plot should match theirs."
   },
   {
     "objectID": "NonLinearSigma.html#current-issues-and-open-questions",
     "href": "NonLinearSigma.html#current-issues-and-open-questions",
     "title": "NonLinear Sigma Model with Topological Term",
     "section": "Current issues and open questions",
-    "text": "Current issues and open questions\nIssues we are working on resolving: * The topological charge calculation () is currently returning non-integer values * The correlation function at the smallest nonzero lattice momentum  is a complex number, therefore so is our correlation length. Correlation length at imaginary  should be real * Additionally, when this value is computed in C++, the results are significantly off from the calculation done in Python * Currently, the simulation returns the average value of the correlation function computed after thermalization. There is no way to change this after the simulation is run, and we don’t have the code set up yet to return any error on the correlation function. That may come in future versions of the code.\nResearch questions and next steps * What can a ML model learn from the configuration data we have so far? * How will Complex Langevin results differ from these if at all?\n\nResults",
-    "crumbs": [
-      "NonLinear Sigma Model with Topological Term"
-    ]
+    "text": "Current issues and open questions\nIssues we are working on resolving: * The topological charge calculation () is currently returning non-integer values * The correlation function at the smallest nonzero lattice momentum  is a complex number, therefore so is our correlation length. Correlation length at imaginary  should be real * Additionally, when this value is computed in C++, the results are significantly off from the calculation done in Python * Currently, the simulation returns the average value of the correlation function computed after thermalization. There is no way to change this after the simulation is run, and we don’t have the code set up yet to return any error on the correlation function. That may come in future versions of the code.\nResearch questions and next steps * What can a ML model learn from the configuration data we have so far? * How will Complex Langevin results differ from these if at all?\n\nResults"
   },
   {
     "objectID": "RegularizingQL.html",
@@ -246,10 +237,7 @@
     "href": "NonLinearSigma.html#complex-langevin-approach",
     "title": "NonLinear Sigma Model with Topological Term",
     "section": "Complex Langevin Approach",
-    "text": "Complex Langevin Approach\nAnother approach to systems with a sign problem is to use Complex Langevin. This has been demonstrated to be successful across disciplines and systems.\n\nCite at least 6 papers – condensed matter, HEP, QCD\n\nThe complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see Berger et al, 2021\n\nCite more? E.g. “The complex langevin method: when can it be trusted?”\n\nIt can sometimes converge to mathematically correct but physically invalid solutions (see Guralnik and Pehlevan, 2008. It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time\n\nPick a few of the relevant citations here",
-    "crumbs": [
-      "NonLinear Sigma Model with Topological Term"
-    ]
+    "text": "Complex Langevin Approach\nAnother approach to systems with a sign problem is to use Complex Langevin. This has been demonstrated to be successful across disciplines and systems.\n\nCite at least 6 papers – condensed matter, HEP, QCD\n\nThe complex Langevin method, like all methods that tackle the sign problem, has challenges as well as benefits (see Berger et al, 2021\n\nCite more? E.g. “The complex langevin method: when can it be trusted?”\n\nIt can sometimes converge to mathematically correct but physically invalid solutions (see Guralnik and Pehlevan, 2008. It can sometimes diverge due to numerical instabilities, which can be controlled at the cost of computational time\n\nPick a few of the relevant citations here"
   },
   {
     "objectID": "PeakMap.html#overview-the-physics-of-peakmap",
@@ -396,10 +384,7 @@
     "href": "NonLinearSigma.html#monte-carlo-analytic-continuation-approach",
     "title": "NonLinear Sigma Model with Topological Term",
     "section": "Monte Carlo + analytic continuation approach",
-    "text": "Monte Carlo + analytic continuation approach\nThis approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the   nonlinear sigma model where the topological term  is assigned an imaginary value.\n\nBackground and Methodology\n\nLattice Action\nIn the continuum, the model has action\n\nwith\n\nwith  a 3-component unit vector.\nIn lattice action form, we have (see Alles et al, 2014:\n\n\n\nwhere  is a 3-component unit vector () and  is the total topological charge on the lattice.\n\n\nRegularization of the topological charge\nThe topological charge has been defined via sums over triangles created by cutting each square plaquette along the diagonal. Each vertex is labeled (numbered counter-clockwise), such that we call the fields at the sites of the vertices  and \nThe topological charge over each triangle obeys\n\nwith\n\nand\n\nWe use the arcsin of the quantity  to compute , as in C++ the domain of arcsin is symmetric about , which prevents the need to adjust the domain to fit the expectation given above.\nHere we provide a deeper dive into the topological charge and how it is regularized on triangles.\n\n\nAnalytic continuation\nThe simulation is run for imaginary values of , which means we must analytically continue our results for real . To do this, we fit our results to a curve and then substitute our imaginary  for a real .\n\n\nThe mass gap\nOur goal with this project is to determine the mass gap, which should vanish as . The mass gap is the inverse of the correlation length, which we compute in the simulation.\n\nThe correlation length should be a real number, but our simulations are currently returning a complex result, due to the complexity of the correlation function. More investigation is required here.\n\nHere we provide a deeper dive into the mass gap and compare our results prior to analytical continuation to Alles et al",
-    "crumbs": [
-      "NonLinear Sigma Model with Topological Term"
-    ]
+    "text": "Monte Carlo + analytic continuation approach\nThis approach uses a conventional Monte Carlo simulation with a Metropolis step to simulate the   nonlinear sigma model where the topological term  is assigned an imaginary value.\n\nBackground and Methodology\n\nLattice Action\nIn the continuum, the model has action\n\nwith\n\nwith  a 3-component unit vector.\nIn lattice action form, we have (see Alles et al, 2014:\n\n\n\nwhere  is a 3-component unit vector () and  is the total topological charge on the lattice.\n\n\nRegularization of the topological charge\nThe topological charge has been defined via sums over triangles created by cutting each square plaquette along the diagonal. Each vertex is labeled (numbered counter-clockwise), such that we call the fields at the sites of the vertices  and \nThe topological charge over each triangle obeys\n\nwith\n\nand\n\nWe use the arcsin of the quantity  to compute , as in C++ the domain of arcsin is symmetric about , which prevents the need to adjust the domain to fit the expectation given above.\nHere we provide a deeper dive into the topological charge and how it is regularized on triangles.\n\n\nAnalytic continuation\nThe simulation is run for imaginary values of , which means we must analytically continue our results for real . To do this, we fit our results to a curve and then substitute our imaginary  for a real .\n\n\nThe mass gap\nOur goal with this project is to determine the mass gap, which should vanish as . The mass gap is the inverse of the correlation length, which we compute in the simulation.\n\nThe correlation length should be a real number, but our simulations are currently returning a complex result, due to the complexity of the correlation function. More investigation is required here.\n\nHere we provide a deeper dive into the mass gap and compare our results prior to analytical continuation to Alles et al"
   },
   {
     "objectID": "nonlinearsigma/MCcode.html",
