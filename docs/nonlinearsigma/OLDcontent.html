@@ -176,22 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="https://www.bates.edu/research-resources/etna/">
- <span class="dropdown-text">Data Storage at Bates: Etna</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Projects</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
-        <li>
-    <a class="dropdown-item" href="../PeakMap.html">
- <span class="dropdown-text">PeakMap</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../NonLinearSigma.html">
- <span class="dropdown-text">NonLinear Sigma Model with Topological Term</span></a>
+ <span class="dropdown-text">Etna: Data Storage at Bates</span></a>
   </li>  
     </ul>
   </li>
@@ -211,10 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#non-integer-q_l" id="toc-non-integer-q_l" class="nav-link active" data-scroll-target="#non-integer-q_l">Non-integer <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"></a>
-  <ul class="collapse">
-  <li><a href="#exceptional-triangles" id="toc-exceptional-triangles" class="nav-link" data-scroll-target="#exceptional-triangles">Exceptional triangles</a></li>
-  <li><a href="#c-asin-and-acos" id="toc-c-asin-and-acos" class="nav-link" data-scroll-target="#c-asin-and-acos">C++ asin and acos </a><a id="QL_trig_comp" class="nav-link" data-scroll-target="undefined"></a></li>
+  <li><a href="#c-asin-and-acos" id="toc-c-asin-and-acos" class="nav-link active" data-scroll-target="#c-asin-and-acos">C++ asin and acos </a><a id="QL_trig_comp" class="nav-link" data-scroll-target="undefined"></a></li>
   <li><a href="#monte-carlo-with-analytical-continuation" id="toc-monte-carlo-with-analytical-continuation" class="nav-link" data-scroll-target="#monte-carlo-with-analytical-continuation">Monte Carlo with Analytical Continuation</a>
   <ul class="collapse">
   <li><a href="#markov-chain-monte-carlo" id="toc-markov-chain-monte-carlo" class="nav-link" data-scroll-target="#markov-chain-monte-carlo">Markov Chain Monte Carlo</a></li>
@@ -225,7 +207,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   </ul></li>
   <li><a href="#complex-langevin-approach" id="toc-complex-langevin-approach" class="nav-link" data-scroll-target="#complex-langevin-approach">Complex Langevin Approach</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -251,30 +232,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="non-integer-q_l" class="level1">
-<h1>Non-integer <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"></h1>
-<p>Early tests of the code revealed that it was not yielding integer values for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline">, at least not all the time. When the code returned an integer value for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline">, it was always one of the following: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20-1%2C%200%2C%201%2C%202%2C%203" alt="-1, 0, 1, 2, 3" title="-1, 0, 1, 2, 3" class="math inline">. And in the event that <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> was a non-integer, it would often be a very large number. This is true for calculations of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> using both arccos and arcsin, but the problem is much more severe for arccos (e.g.&nbsp;when arccos was used to compute <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline">, it could go up to <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20140" alt="140" title="140" class="math inline">, while arcsin’s largest values were under <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%2020" alt="20" title="20" class="math inline">). We discuss possible reasons for the difference in output using arcsin and arccos <a href="#QL_trig_comp">below</a>.</p>
-<p>In the figure below, we can see results for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> calculated using arccos (top) and arcsin (bottom). The x-axis represents individual runs (the numbering is arbitrary, but represents unique parameter combinations). On the y-axis are the values of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> calculated at 100 steps in the Monte Carlo trajectory, demonstrating the spread of values.</p>
-<p><img src="images/QL_arcsin_v_arccos_noninteger.png" class="img-fluid"></p>
-<p><strong>Figure and analysis credit: Andy Esseln, Smith College</strong></p>
-<div class="alert alert-warning">
-<p>Update this figure – reduce alpha and maybe plot both on the same axes to show the massive difference in size? Is there a way to highlight where integers do occur or are these all non-integer values?</p>
-</div>
-<p>Length and topological term <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline"> clearly both have an effect on the number of integer values of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline">. The effect of length appears to be stronger than that of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%5Ctheta" alt="i\theta" title="i\theta" class="math inline">, and its existence makes sense, as there are more lattice sites and more places where problems can arise and compound. Interestingly, though, it appears not just to decrease the number of integer values, but the fraction of values which are integers decreases rapidly with lattice length.</p>
-<p>It is less clear how <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%20%5Ctheta" alt="i \theta" title="i \theta" class="math inline"> introduces this issue, although it could be as simple as shifting <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Ctheta" alt="\theta" title="\theta" class="math inline"> away from zero shifts <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_L" alt="Q_L" title="Q_L" class="math inline"> away from zero (an integer) and therefore the effects of length are more obvious at higher <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%20%5Ctheta" alt="i \theta" title="i \theta" class="math inline">. The figure below clearly illustrates the larger effect of length, as for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20L%20%3D%2040" alt="L = 40" title="L = 40" class="math inline">, we have almost zero integer values for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline"> even at <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20i%20%5Ctheta%20%3D%200" alt="i \theta = 0" title="i \theta = 0" class="math inline">.</p>
-<p><img src="images/integer_proportions_L.png" class="img-fluid"></p>
-<p><strong>Figure and analysis credit: Andy Esseln, Smith College</strong></p>
-<div class="alert alert-warning">
-<p>Maybe add another figure with <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20L" alt="L" title="L" class="math inline"> on the x axis so we can see the shape of the dependence of prop(integers) on <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20L" alt="L" title="L" class="math inline">?</p>
-</div>
-<section id="exceptional-triangles" class="level2">
-<h2 class="anchored" data-anchor-id="exceptional-triangles">Exceptional triangles</h2>
-<p>The method used to regularize the topological charge by defining it on triangles rather than points is meant to yield integer values for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline">. However, this is only the case if the field configurations are not exceptional (see <a href="https://doi.org/10.1016/0550-3213(81)90568-X">Berg and Lüscher, 1981</a>). Exceptional configurations occur when either of the following conditions are met:</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cvec%7B%5Cphi%7D_%7B1%7D%20%5Ccdot%20%28%5Cvec%7B%5Cphi%7D_%7B2%7D%20%5Ctimes%20%5Cvec%7B%5Cphi%7D_%7B3%7D%29%20%3D%200" alt="\vec{\phi}_{1} \cdot (\vec{\phi}_{2} \times \vec{\phi}_{3}) = 0" title="\vec{\phi}_{1} \cdot (\vec{\phi}_{2} \times \vec{\phi}_{3}) = 0" class="math inline"></p>
-<p>or</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%201%20%2B%20%5Cvec%7B%5Cphi%7D_%7B1%7D%20%5Ccdot%20%5Cvec%7B%5Cphi%7D_%7B2%7D%20%2B%20%20%5Cvec%7B%5Cphi%7D_%7B2%7D%20%5Ccdot%20%5Cvec%7B%5Cphi%7D_%7B3%7D%20%2B%20%20%5Cvec%7B%5Cphi%7D_%7B3%7D%20%5Ccdot%20%5Cvec%7B%5Cphi%7D_%7B1%7D%20%5Cleq%200" alt="1 + \vec{\phi}_{1} \cdot \vec{\phi}_{2} +  \vec{\phi}_{2} \cdot \vec{\phi}_{3} +  \vec{\phi}_{3} \cdot \vec{\phi}_{1} \leq 0" title="1 + \vec{\phi}_{1} \cdot \vec{\phi}_{2} +  \vec{\phi}_{2} \cdot \vec{\phi}_{3} +  \vec{\phi}_{3} \cdot \vec{\phi}_{1} \leq 0" class="math inline">.</p>
-<p>While it appears that the existence of exceptional configurations always leads to non-integer values of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Q_%7BL%7D" alt="Q_{L}" title="Q_{L}" class="math inline">, it is also the case that in some instances with no exceptional configurations, we still have non-integer values for the topological charge. This means that exceptional configurations cannot be the only cause of this breakdown, although it does appear to be a factor.</p>
-</section>
 <section id="c-asin-and-acos" class="level2">
 <h2 class="anchored" data-anchor-id="c-asin-and-acos">C++ asin and acos <a id="QL_trig_comp"></a></h2>
 <div class="alert alert-warning">
@@ -340,7 +297,6 @@ Pick a few of the relevant citations here
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
