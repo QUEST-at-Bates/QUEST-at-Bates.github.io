@@ -64,8 +64,8 @@ You do not need to post regularly in the slack, but before you reach out to me w
 
 There are two types of notes I expect you to keep updated:
 
-1. When you join the group, you will create a personal “lab notebook” on overleaf. You will keep your project notes updated there, with an informal “report” each week. This does not need to be formatted in any specific way - it’s just a place for you to keep track of what you were doing, any useful tips you want to remember, and troubleshooting issues that arise. You are free to decide what workflow works best for you.
-2. When you are added to a project, you will also be added to that project’s logbook in overleaf. Any time you make a significant change or discover a noteworthy insight about that project, I expect you to add it to the project’s logbook. In the project logbooks, you will add your notes with an identifying color and label. I will show you how to set this up in overleaf with a quick shortcut.
+1. When you join the group, you will get a personal “lab notebook” on Google drive. This does not need to be formatted in any specific way - it’s just a place for you to keep track of what you were doing, any useful tips you want to remember, and troubleshooting issues that arise. You are free to decide what workflow works best for you.
+2. When you are added to a project, you will also be added to that project’s documentation in overleaf. Any time you make a significant change or discover a noteworthy insight about that project, I expect you to add it to the project’s documentation.
 
 ## Senior Thesis
 
@@ -75,7 +75,7 @@ You should consider your thesis project as equivalent to a demanding upper-level
 
 ### Mid-semester check-in
 
-Sometime in October, the department will schedule a thesis progress presentation time. One week prior to the thesis progress presentation, you will do the following:
+Sometime in the middle of the semester, the department will schedule a thesis progress presentation time. One week prior to the thesis progress presentation, you will do the following:
 
 1. Turn in a draft of a 7-minute talk on the work you have done so far this semester and the remaining work to do
 2. [Schedule a 30 minute meeting with me](https://calendly.com/caseyberger/research-meeting) to talk through your presentation slides
